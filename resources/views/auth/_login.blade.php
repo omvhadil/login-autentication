@@ -2,20 +2,27 @@
 @section('content')
     <div class="p-3 pt-5">
         <h3 class="text-center mb-3">Login</h3>
-        <form>
+        <form action="{{ route('login') }}" method="post">
+            @csrf
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" value="{{ old('email') }}" name="email" class="form-control" id="email"
+                    aria-describedby="emailHelp">
+                @error('email')
+                    <div class="text-danger mt-1" style="font-size: .75rem">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" value="{{ old('password') }}" name="password" class="form-control" id="password">
+                @error('password')
+                    <div class="text-danger mt-1" style="font-size: .75rem">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3 d-flex justify-content-end">
                 <a href="#">Forgot Password?</a>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <div class="mt-5 d-flex justify-content-center" style="font-size: .85rem">
             <p>Don't have an account yet? <a href="{{ route('register') }}" class="text-decoration-none fw-semibold">create

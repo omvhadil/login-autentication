@@ -15,20 +15,15 @@ class RegisterController extends Controller
     public function store(Request $request) {
         $request->validate([
             // minimal 4 karakter dan maksimal 30 karakter untuk username dan harus berupa string
-            'username' => ['required', 'alpha_num', 'min:4', 'max:30'],
+            'username' => ['required', 'unique:users', 'alpha_num', 'min:4', 'max:30'],
             // name harus di isi
             'name' => ['required'],
             // string email akan mengecek apakah ini benar-benar email atau tidak
-            'email' => ['required', 'email',],
+            'email' => ['required', 'unique:users', 'email',],
             // minimal 8 karakter untuk password
             'password' => ['required', 'min:8'],
         ]);
 
-        $user = User::where('email', $request->email)->orwhere('username', $request->username)->first();
-
-        if ($user) {
-            return back();
-        }
 
         User::create([
             'username' => $request->username,
@@ -38,6 +33,6 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 }

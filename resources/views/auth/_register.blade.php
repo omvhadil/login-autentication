@@ -33,10 +33,11 @@
                     <div class="text-danger mt-1" style="font-size: .75rem">{{ $message }}</div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
         <div class="mt-4 d-flex justify-content-center" style="font-size: .85rem">
-            <p>already have an account? <a href="/" class="text-decoration-none fw-semibold">login</a> </p>
+            <p>already have an account? <a href="{{ route('login') }}" class="text-decoration-none fw-semibold">login</a>
+            </p>
         </div>
     </div>
 @endsection
