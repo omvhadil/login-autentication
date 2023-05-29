@@ -16,10 +16,10 @@
 
 <body>
     <div class="container">
-        <div class="row justify-content-center align-items-center" style="height: 100vh">
-            <div class="col-4 bg-info" style="height: 500px">
-            </div>
-            <div class="col-4 bg-white" style="height: 500px">
+        <div class="row px-3 justify-content-center align-items-center" style="height: 100vh">
+            {{-- <div class="col-md-4 bg-info col-sm-12" style="height: 500px">
+            </div> --}}
+            <div class="col-md-4 bg-white col-sm-12" style="height: 500px">
                 @yield('content')
             </div>
         </div>

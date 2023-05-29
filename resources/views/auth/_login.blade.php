@@ -1,15 +1,15 @@
 @extends('auth.autentication')
 @section('content')
-    <div class="p-3 pt-5">
-        <h3 class="text-center mb-3">Login</h3>
+    <div class="p-lg-3 pt-lg-5 p-4">
+        <h1 class="text-center mb-3">Login</h1>
         <form action="{{ route('login') }}" method="post">
             @csrf
             <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
+                <label for="email" class="form-label">Email</label>
                 <input type="email" value="{{ old('email') }}" name="email" class="form-control" id="email"
                     aria-describedby="emailHelp">
                 @error('email')
-                    <div class="text-danger mt-1" style="font-size: .75rem">{{ $message }}</div>
+                    <div class="text-danger mt-1" style="font-size: .76rem">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
